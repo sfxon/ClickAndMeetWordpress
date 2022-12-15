@@ -1,0 +1,285 @@
+/* Fix calendar min width.. */
+#mv-kalender-container {
+		/*width: 400px;*/
+		margin: 0 auto;
+		margin-bottom: 64px;
+		margin-top: 30px;
+}
+
+.mv-kalender-location-container { width: auto; margin: 0 auto; text-align: center; }
+.kalender-event-location { width: auto; margin: 0 auto; display: inline-block; }
+.kalender-user-unit { width: auto; margin: 0 auto; display: inline-block; }
+
+@media (min-width: 900px) {
+		.mv-kalender-location-container { width: auto; margin: 0 auto; text-align: left; }
+		.kalender-event-location { width: auto; margin: 0; display: block; }
+		.kalender-user-unit { width: auto; margin: 0; display: block; }
+		#mv-kalender-timer-container { display: flex; flex-wrap: wrap; justify-content: space-between; }
+		#mv-kalender-container {
+				flex-grow: 0;
+				flex-shrink: 0;
+				flex-basis: auto;
+				margin: 0;
+				min-width: 300px;
+				margin-bottom: 32px;
+				margin-right: 24px;
+		}
+		#mv-timer-container {
+				flex-grow: 4;
+				flex: 1;
+				min-width: 300px;
+				padding-top: 4px;
+		}
+}
+
+
+#mv-kalender-timer-container .kalender-header, 
+#mv-kalender-timer-container .kalender-row { 
+		white-space: nowrap; 
+}
+
+.kalender-month, .kalender-year, .kalender-top-nav, .kalender-top-nav-prev, .kalender-top-nav-next,
+.kalender-weeknumber, .kalender-entry, .kalender-header-weeknumber, .kalender-header-day,
+.times-list-top-left, .times-list-top-right, .times-list-top-right-count, .times-list-top-right-add {
+		display: inline-block; vertical-align: top;
+}
+.kalender-weeknumber, .kalender-entry, .kalender-header-weeknumber, .kalender-header-day,
+.kalender-top-nav-prev, .kalender-top-nav-next {
+		width: 47px;
+		height: 47px;
+		text-align: center;
+		font-size: 1.9em;
+		margin-right: 3px;
+		margin-bottom: 3px;
+		padding-top: 0px;
+}
+
+.kalender-top-nav-prev, .kalender-top-nav-next {
+		background-color: #333;
+		color: #FFF;
+		padding-top: 0px;
+		cursor: pointer;
+}
+
+.kalender-top-nav-prev img, .kalender-top-nav-next img {
+		max-width: 100%;
+		max-height: 100%;
+		vertical-align: top;
+}
+
+.kalender-weeknumber, .kalender-header-weeknumber, .kalender-header-day {
+		background-color: #428BCA;
+		color: #FFF;
+}
+
+.kalender-entry {
+		/*background-color: #CCC;*/
+		cursor: pointer;
+		color: rgba(0, 0, 0, 0.3);
+}
+.mv-clearfix { display: block; width: 0; height: 0; color: transparent; background-color: transparent; content: " "; clear: both; }
+
+.kalender-top-label {
+		display: block;
+		margin-bottom: 0;
+}
+
+.kalender-header-weeknumber text {
+		font-size: 14px!important;		
+}
+
+.kalender-year { margin-right: 16px; }
+
+.times-list-title {
+		font-size: 24px;
+		line-height: 44px;
+		height: 47px;
+		background-color: #428BCA;
+		color: #FFF;
+		padding: 0px 12px;
+		margin-bottom: 3px;
+}
+
+.times-list-top {
+		padding: 2px 12px 2px 12px;
+		border: 1px solid #428BCA;
+}
+
+.times-list-top-left, .times-list-top-right-count {
+}
+
+.times-list-top-right-add {
+		margin-left: 12px;
+}
+
+.date-selector-wrapper {
+		display: block;
+		z-index: 100000;
+}
+
+.clock-timepicker-popup {
+		left: auto!important;
+		top: auto!important;
+		margin-top: 6px!important;
+}
+.clock-timepicker {
+		display: block!important;
+}
+
+.mv-error {
+		color: red;
+}
+
+#mvCmCalendarSuccessMessage {
+		margin-bottom: 12px;
+}
+
+.times-list-content {
+		display: table;
+		width: 100%;
+		margin-top: 12px;
+		margin-bottom: 24px;
+		overflow: hidden;
+}
+
+/* Fix iphone bug with display: table -> overflows over other container.. */
+@media (max-width: 768px) {
+		.times-list-content {
+				display: block;
+		}
+}
+
+.times-list-content .mv-cm-timer-row {
+		display: table-row;
+		cursor: pointer;
+}
+
+.times-list-content .mv-cm-timer-row>div {
+		background-color: #FFF;
+		height: 56px;		/* use height as long as this div is styled as table cell, because height behaves like min-height in table-cells */
+}
+
+.times-list-content .mv-cm-timer-row:nth-child(odd)>div {
+		background-color: #EEE;
+}
+
+.times-list-content .mv-cm-timer-row:hover>div {
+		background-color: #cce6ff;
+}
+
+.times-list-content .mv-cm-timer-row>div {
+		display: table-cell;
+		padding: 4px 13px;
+}
+
+.mv-cm-timer-time { width: 20%; }
+.mv-cm-timer-description { width: 30%; }
+.mv-cm-timer-user { width: 20%; }
+.mv-cm-timer-status { width: 20%; }
+.mv-cm-timer-action { width: 10%; text-align: right; }
+.mv-status-count-1 { background-color: #FFF; color: #000; }
+.mv-calendar-current-day { color: #428BCA; }
+.mv-current-selected-day { 
+		background-color: #E66D00; color: #FFF;
+}
+.mv-current-selected-day.mv-calendar-current-day { background-color: #FF8211; color: #245480; }	/* Wenn der aktuelle Tag auch gleichzeitig ausgewählt ist - Textfarbe etwas dunkler machen */
+.kalender-event-location { margin-bottom: 6px; }
+.kalender-user-unit { margin-bottom: 6px; }
+.mvbox-body { min-height: 500px; }
+#mv-event-location-container { margin-bottom: 12px; }
+#mv-event-location-container select { width: 300px; }
+#mv-user-unit-container { margin-bottom: 32px; }
+#mv-user-unit-container select { width: 300px; }
+
+.kalender-top { position: relative; }
+.kalender-top-nav.pull-right {
+		bottom: 0;
+		position: absolute;
+		right: 0;
+}
+
+.times-list-top-right.pull-right { 
+		float: right; 
+}
+
+.kalender-top .kalender-month, .kalender-top .kalender-year { position: relative; top: -6px; }
+.times-list-top-right-add { display: none; }
+
+@media (max-width: 500px) {
+		#mv-kalender-container {
+				width: 350px;
+		}
+		
+		.kalender-weeknumber, .kalender-entry, .kalender-header-weeknumber, .kalender-header-day, .kalender-top-nav-prev, .kalender-top-nav-next {
+    		width: 40px;
+    		height: 40px;
+				font-size: 1.6em;
+		}
+		.kalender-header-weeknumber {
+				font-size: 1.2em;
+		}
+		
+		.kalender-top-nav.pull-right {
+				padding-right: 6px;
+				margin-top: 14px;
+		}
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+		.container { /*max-width: 100%!important;*/ margin-left: 0; margin-right: 0; }
+}
+
+#mv-kalender-book-now { margin-top: 48px; }
+#mv-kalender-book-now-info { padding-bottom: 12px; }
+#mv-kalender-book-now-info-2 { padding-bottom: 32px; text-align: right; }
+
+#kalender-content-container label {
+		display: block;
+}
+
+
+.form-group { margin-bottom: 24px; }
+.modal-footer { padding-left: 0; padding-right: 0; display: block; text-align: right; }	
+#mv-more-information { margin-top: 64px; }
+#mv-editor-save-error { display: block; }
+
+#mv-error-message { text-right; font-weight: bold; }
+
+#mv-kalender-book-now input, #mv-kalender-book-now select, #mv-kalender-book-now textarea {
+		width: 100%;
+}
+
+#mv-kalender-book-now .btn {
+		padding: .375rem .75rem;
+}
+
+#mv-kalender-book-now-fields {
+		margin-top: 24px;
+}
+
+#mv-editor-saving {
+		color: #073;
+}
+
+@media (max-width: 768px) {
+		/* fix a wordpress styling problem.. */
+		.container.mv-outer-calendar-container {
+				width: 100%!important;
+		}
+}
+
+#mv-kalender-book-now .modal-footer {
+		display: block!important;
+}
+#mv-editor-save-error {
+		padding-bottom: 12px;
+}
+
+#kalender-success-container {
+		margin-top: 18px;
+		margin-bottom: 24px;
+}
+
+#kalender-content-container {
+		padding-bottom: 32px;
+}
